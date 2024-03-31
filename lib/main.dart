@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tv_shows/screens/categories_screen.dart';
 
 final theme = ThemeData(
-  fontFamily: "CupertinoSystemText",
+  //fontFamily: "CupertinoSystemText",
   colorScheme: ColorScheme.fromSeed(
     brightness: Brightness.dark,
-    seedColor:const Color.fromARGB(255, 30, 119, 183),
+    seedColor:const Color.fromARGB(255, 133, 69, 23),
   ),
 );
 
