@@ -20,7 +20,7 @@ const availableCategories = [
   Category(
     id: 'c4',
     title: 'Horror',
-    color: Colors.yellow,
+    color: Colors.indigo,
   ),
   Category(
     id: 'c5',
@@ -49,7 +49,7 @@ const availableCategories = [
   ),
   Category(
     id: 'c10',
-    title: 'Super Natural',
-    color: Colors.grey,
+    title: 'Black Comedy',
+    color: Colors.amber,
   ),
 ];
