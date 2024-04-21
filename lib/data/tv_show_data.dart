@@ -6,7 +6,7 @@ const availableTvShows = [
     id: 'm1', 
     categories: ['c1'], 
     title: 'My Mister', 
-    imageUrl: 'https://en.wikipedia.org/wiki/File:MyMisterposter.jpg', 
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/en/3/31/MyMisterposter.jpg', 
     language: 'Korean', 
     information: [
       'Directed by: Kim Won-seok'
@@ -24,7 +24,7 @@ const availableTvShows = [
     id: 'm2', 
     categories: ['c1','c2'], 
     title: 'Jack Whitehall: Travels with my Father', 
-    imageUrl: 'https://en.wikipedia.org/wiki/Jack_Whitehall:_Travels_with_My_Father#/media/File:Travels_with_My_Father.jpg', 
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/en/b/be/Travels_with_My_Father.jpg', 
     language: 'English', 
     information: [
       'Created by: Jack Whitehall'

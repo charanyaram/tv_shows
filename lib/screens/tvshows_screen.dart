@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tv_shows/models/tv_show_model.dart';
+import 'package:tv_shows/widgets/tv_show_item.dart';
 
 class TVShowsScreen extends StatelessWidget {
   const TVShowsScreen({super.key, required this.title, required this.tvshows});
@@ -11,7 +12,7 @@ class TVShowsScreen extends StatelessWidget {
   Widget build(context) {
     Widget content = ListView.builder(
       itemCount: tvshows.length,
-      itemBuilder: (context, index) => Text(tvshows[index].title),
+      itemBuilder: (context, index) => TVShowItem(tvShow: tvshows[index]),
     );
 
     if (tvshows.isEmpty) {
