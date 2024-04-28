@@ -4,13 +4,14 @@ import 'package:tv_shows/screens/tvshow_details_screen.dart';
 import 'package:tv_shows/widgets/tv_show_item.dart';
 
 class TVShowsScreen extends StatelessWidget {
-  const TVShowsScreen({super.key, this.title, required this.tvshows});
+  const TVShowsScreen({super.key, this.title, required this.tvshows, required this.onToggleFavourite});
 
   final String? title;
   final List<TvShow> tvshows;
+  final void Function(TvShow tvshow) onToggleFavourite;
  
   void onSelectShow(BuildContext context, TvShow tvShow){
-    Navigator.of(context).push(MaterialPageRoute(builder: (tvshowcontext)=> TVShowDetailsScreen(tvShow: tvShow)));
+    Navigator.of(context).push(MaterialPageRoute(builder: (tvshowcontext)=> TVShowDetailsScreen(onToggleFavourite: onToggleFavourite,tvShow: tvShow)));
   }
 
   @override
