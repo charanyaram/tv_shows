@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tv_shows/screens/bottom_tab_screen.dart';
 import 'package:tv_shows/screens/categories_screen.dart';
 import 'package:tv_shows/screens/tvshows_screen.dart';
 import 'package:tv_shows/data/tv_show_data.dart';
@@ -22,7 +23,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      home: const CategoriesScreen(),
+      home: const BottomTabScreen(),
     );
   }
 }

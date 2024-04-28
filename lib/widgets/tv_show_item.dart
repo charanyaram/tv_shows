@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:tv_shows/models/tv_show_model.dart';
+import 'package:tv_shows/widgets/tv_show_metadata.dart';
 
 class TVShowItem extends StatelessWidget {
-  const TVShowItem({super.key, required this.tvShow});
+  const TVShowItem({super.key, required this.tvShow, required this.onTVShowTap});
 
   final TvShow tvShow;
-
+  final void Function(TvShow tvShow) onTVShowTap; 
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -16,14 +17,16 @@ class TVShowItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          onTVShowTap(tvShow);
+        },
         child: Stack(
           children: [
             FadeInImage(
                 placeholder: MemoryImage(kTransparentImage),
                 image: NetworkImage(tvShow.imageUrl),
                 fit:BoxFit.cover,
-                height: 200,
+                height: 220,
                 width: double.infinity,                
             ),
             Positioned(
@@ -49,7 +52,15 @@ class TVShowItem extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const Row(children: [],)
+                    Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TVShowItemMetadata(icon: Icons.calendar_month, label: tvShow.releaseYear.toString(),),
+                      const SizedBox(width: 10),
+                      TVShowItemMetadata(icon: Icons.language, label: tvShow.language,),
+                      const SizedBox(width: 10),
+                      TVShowItemMetadata(icon: Icons.numbers_rounded, label: 'Episodes ${tvShow.numEpisodes.toString()}',)
+                    ],),
                   ],
                 ),
               ),

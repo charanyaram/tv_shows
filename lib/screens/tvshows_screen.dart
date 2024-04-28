@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:tv_shows/models/tv_show_model.dart';
+import 'package:tv_shows/screens/tvshow_details_screen.dart';
 import 'package:tv_shows/widgets/tv_show_item.dart';
 
 class TVShowsScreen extends StatelessWidget {
-  const TVShowsScreen({super.key, required this.title, required this.tvshows});
+  const TVShowsScreen({super.key, this.title, required this.tvshows});
 
-  final String title;
+  final String? title;
   final List<TvShow> tvshows;
+ 
+  void onSelectShow(BuildContext context, TvShow tvShow){
+    Navigator.of(context).push(MaterialPageRoute(builder: (tvshowcontext)=> TVShowDetailsScreen(tvShow: tvShow)));
+  }
 
   @override
   Widget build(context) {
     Widget content = ListView.builder(
       itemCount: tvshows.length,
-      itemBuilder: (context, index) => TVShowItem(tvShow: tvshows[index]),
+      itemBuilder: (context, index) => TVShowItem(tvShow: tvshows[index],onTVShowTap: (tvShow){onSelectShow(context, tvShow);}),
     );
 
     if (tvshows.isEmpty) {
@@ -25,10 +30,13 @@ class TVShowsScreen extends StatelessWidget {
         ),
       );
     }
+  if (title == null){
+    return content;
+  }
 
   return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title!),
       ),
       body: content,
     );
